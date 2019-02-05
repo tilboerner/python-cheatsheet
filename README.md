@@ -44,11 +44,11 @@ no_duplicates    = list(dict.fromkeys(<list>))
 ```
 
 ```python
-index = <list>.index(<el>)  # Returns first index of item. 
+index = <list>.index(<el>)  # Returns first index of item.
 <list>.insert(index, <el>)  # Inserts item at index and moves the rest to the right.
 <el> = <list>.pop([index])  # Removes and returns item at index or from the end.
 <list>.remove(<el>)         # Removes first occurrence of item.
-<list>.clear()              # Removes all items.   
+<list>.clear()              # Removes all items.
 ```
 
 
@@ -274,9 +274,9 @@ import re
 ```
 
 * **Parameter `'flags=re.IGNORECASE'` can be used with all functions.**
-* **Parameter `'flags=re.DOTALL'` makes dot also accept newline.**  
-* **Use `r'\1'` or `'\\\\1'` for backreference.**  
-* **Use `'?'` to make operators non-greedy.**   
+* **Parameter `'flags=re.DOTALL'` makes dot also accept newline.**
+* **Use `r'\1'` or `'\\\\1'` for backreference.**
+* **Use `'?'` to make operators non-greedy.**
 
 ### Match Object
 ```python
@@ -429,7 +429,7 @@ Arguments
 ```python
 args   = (1, 2)
 kwargs = {'x': 3, 'y': 4, 'z': 5}
-func(*args, **kwargs)  
+func(*args, **kwargs)
 ```
 
 #### Is the same as:
@@ -537,7 +537,7 @@ creature  = Creature()
 Closure
 -------
 **We have a closure in Python when:**
-* **A nested function references a value of its enclosing function and then** 
+* **A nested function references a value of its enclosing function and then**
 * **the enclosing function returns the nested function.**
 
 ```python
@@ -704,7 +704,7 @@ class MyComparable:
     def __eq__(self, other):
         if isinstance(other, type(self)):
             return self.a == other.a
-        return False 
+        return False
 ```
 
 ### Hashable
@@ -722,7 +722,7 @@ class MyHashable:
     def __eq__(self, other):
         if isinstance(other, type(self)):
             return self.a == other.a
-        return False 
+        return False
     def __hash__(self):
         return hash(self.a)
 ```
@@ -767,7 +767,7 @@ Enum
 from enum import Enum, auto
 
 class <enum_name>(Enum):
-    <member_name_1> = <value_1>  
+    <member_name_1> = <value_1>
     <member_name_2> = <value_2_a>, <value_2_b>
     <member_name_3> = auto()
 
@@ -1047,7 +1047,7 @@ Bytes
 
 ### Decode
 ```python
-<str>   = <bytes>.decode('utf-8') 
+<str>   = <bytes>.decode('utf-8')
 <int>   = int.from_bytes(<bytes>, byteorder='big|little', signed=False)
 <hex>   = <bytes>.hex()
 ```
@@ -1179,21 +1179,21 @@ from itertools import *
 [('a', 'b'), ('a', 'c'), ('b', 'c')]
 
 >>> combinations_with_replacement('abc', 2)
-[('a', 'a'), ('a', 'b'), ('a', 'c'), 
- ('b', 'b'), ('b', 'c'), 
+[('a', 'a'), ('a', 'b'), ('a', 'c'),
+ ('b', 'b'), ('b', 'c'),
  ('c', 'c')]
 
 >>> permutations('abc', 2)
-[('a', 'b'), ('a', 'c'), 
- ('b', 'a'), ('b', 'c'), 
+[('a', 'b'), ('a', 'c'),
+ ('b', 'a'), ('b', 'c'),
  ('c', 'a'), ('c', 'b')]
 
 >>> product('ab', [1, 2])
-[('a', 1), ('a', 2), 
+[('a', 1), ('a', 2),
  ('b', 1), ('b', 2)]
 
 >>> product([0, 1], repeat=3)
-[(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1), 
+[(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1),
  (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1)]
 ```
 
@@ -1219,17 +1219,17 @@ from itertools import *
 >>> compress('abc', [True, 0, 1])
 ['a', 'c']
 
->>> # islice(<collection>, from_inclusive, to_exclusive) 
+>>> # islice(<collection>, from_inclusive, to_exclusive)
 >>> islice([1, 2, 3], 1, None)
 [2, 3]
 
->>> people = [{'id': 1, 'name': 'Bob'}, 
-              {'id': 2, 'name': 'Bob'}, 
+>>> people = [{'id': 1, 'name': 'Bob'},
+              {'id': 2, 'name': 'Bob'},
               {'id': 3, 'name': 'Peter'}]
 >>> groups = groupby(people, key=lambda a: a['name'])
 >>> {name: list(group) for name, group in groups}
-{'Bob':   [{'id': 1, 'name': 'Bob'}, 
-           {'id': 2, 'name': 'Bob'}], 
+{'Bob':   [{'id': 1, 'name': 'Bob'},
+           {'id': 2, 'name': 'Bob'}],
  'Peter': [{'id': 3, 'name': 'Peter'}]}
 ```
 
@@ -1358,11 +1358,11 @@ import ast
 from ast import Num, BinOp, UnaryOp
 import operator as op
 
-legal_operators = {ast.Add:    op.add, 
-                   ast.Sub:    op.sub, 
+legal_operators = {ast.Add:    op.add,
+                   ast.Sub:    op.sub,
                    ast.Mult:   op.mul,
-                   ast.Div:    op.truediv, 
-                   ast.Pow:    op.pow, 
+                   ast.Div:    op.truediv,
+                   ast.Pow:    op.pow,
                    ast.BitXor: op.xor,
                    ast.USub:   op.neg}
 
@@ -1400,14 +1400,14 @@ def eval_node(node):
 
 Coroutine
 ---------
-* **Similar to Generator, but Generator pulls data through the pipe with iteration, while Coroutine pushes data into the pipeline with send().**  
-* **Coroutines provide more powerful data routing possibilities than iterators.**  
-* **If you built a collection of simple data processing components, you can glue them together into complex arrangements of pipes, branches, merging, etc.**  
+* **Similar to Generator, but Generator pulls data through the pipe with iteration, while Coroutine pushes data into the pipeline with send().**
+* **Coroutines provide more powerful data routing possibilities than iterators.**
+* **If you built a collection of simple data processing components, you can glue them together into complex arrangements of pipes, branches, merging, etc.**
 
 ### Helper Decorator
-* **All coroutines must be "primed" by first calling next().**  
-* **Remembering to call next() is easy to forget.**  
-* **Solved by wrapping coroutines with a decorator:**  
+* **All coroutines must be "primed" by first calling next().**
+* **Remembering to call next() is easy to forget.**
+* **Solved by wrapping coroutines with a decorator:**
 
 ```python
 def coroutine(func):
@@ -1701,7 +1701,7 @@ duration = pc() - start_time
 ### Timing a Snippet
 ```python
 from timeit import timeit
-timeit('"-".join(str(a) for a in range(100))', 
+timeit('"-".join(str(a) for a in range(100))',
        number=10000, globals=globals(), setup='pass')
 ```
 
@@ -1849,7 +1849,7 @@ Basic Script Template
 #!/usr/bin/env python3
 #
 # Usage: .py
-# 
+#
 
 from collections import namedtuple
 from enum import Enum
